@@ -1,9 +1,9 @@
 name: Ci/CD Pipeline to AWS ElasticBeanstalk
 env:
     EB_PACKAGE_S3_BUCKET_NAME: "elasticbeanstalk-eu-central-1-382836692581"
-    EB_APPLICATION_NAME      : "Git1"
-    EB_ENVIRONMENT_NAME      : "Git1-env"
-    DEPLOY_PACKAGE_NAME      : "flask_${{ github.sha }}.zip"
+    EB_APPLICATION_NAME      : "React"
+    EB_ENVIRONMENT_NAME      : "React-env"
+    DEPLOY_PACKAGE_NAME      : "react_${{ github.sha }}.zip"
     AWS_REGION_NAME          : "eu-central-1"
 
 
