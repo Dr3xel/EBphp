@@ -1,37 +1,22 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 
-app = Flask(__name__, template_folder="templates")
+application = Flask(__name__)
 
-todos = [{"task": "Sample Todo", "done": False}]
 
-@app.route("/")
+@application.route("/")
+def root():
+    return render_template("index.html")
+
+@application.route("/help")
+def helppage():
+    return render_template("help.html")
+
+@application.route("/hello")
 def index():
-    return render_template("index.html", todos=todos)
+    return "Hello World from Flask Hello Page.<b> v1.0"
 
-@app.route("/add", methods=["POST"])
-def add():
-    todo = request.form["todo"]
-    todos.append({"task": todo, "done": False})
-    return redirect(url_for("index"))
-
-@app.route("/edit/<int:index>", methods=["GET", "POST"])
-def edit(index):
-    todo = todos[index]
-    if request.method == "POST":
-        todo["task"] = request.form["todo"]
-        return redirect(url_for("index"))
-    else:
-        return render_template("edit.html", todo=todo, index=index)
-
-@app.route("/check/<int:index>")    
-def check(index):
-    todos[index]["done"] = not todos[index]["done"]
-    return redirect(url_for("index"))
-
-@app.route("/delete/<int:index>") 
-def delete(index):
-    del todos[index]
-    return redirect(url_for("index"))
-
+#--------Main------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.debug = True
+    application.run()
+#------------------------------
