@@ -1,8 +1,8 @@
 name: Ci/CD Pipeline to AWS ElasticBeanstalk
 env:
     EB_PACKAGE_S3_BUCKET_NAME: "elasticbeanstalk-eu-central-1-382836692581"
-    EB_APPLICATION_NAME      : "php"
-    EB_ENVIRONMENT_NAME      : "php-env"
+    EB_APPLICATION_NAME      : "Php"
+    EB_ENVIRONMENT_NAME      : "Php-env"
     DEPLOY_PACKAGE_NAME      : "php_hello_${{ github.sha }}.zip"
     AWS_REGION_NAME          : "eu-central-1"
 
