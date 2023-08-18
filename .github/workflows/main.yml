@@ -1,9 +1,9 @@
 name: Ci/CD Pipeline to AWS ElasticBeanstalk
 env:
     EB_PACKAGE_S3_BUCKET_NAME: "elasticbeanstalk-eu-central-1-382836692581"
-    EB_APPLICATION_NAME      : "React"
-    EB_ENVIRONMENT_NAME      : "React-env"
-    DEPLOY_PACKAGE_NAME      : "react_${{ github.sha }}.zip"
+    EB_APPLICATION_NAME      : "Python"
+    EB_ENVIRONMENT_NAME      : "Python-env"
+    DEPLOY_PACKAGE_NAME      : "python_${{ github.sha }}.zip"
     AWS_REGION_NAME          : "eu-central-1"
 
 
@@ -18,17 +18,6 @@ jobs:
         steps:
             - name: Git Checkout
               uses: actions/checkout@v3
-
-            - name: Install NodeJS
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18
-            
-            - name: Installing NPM
-              run: npm install
-
-            - name: Building application
-              run: npm build
 
             - name: Create ZIP package
               run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git* 
