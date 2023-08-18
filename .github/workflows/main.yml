@@ -18,7 +18,16 @@ jobs:
         steps:
             - name: Git Checkout
               uses: actions/checkout@v3
-            
+
+            - name: NPM
+              run: npm install
+
+            - name: build
+              run: npm run build
+
+            - name: test
+              run: npm run test
+
             - name: Create ZIP package
               run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
             
