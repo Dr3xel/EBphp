@@ -27,6 +27,7 @@ jobs:
               with:
                 aws-access-key-id     : ${{ secrets.AWS_ACCESS_KEY }}
                 aws-secret-access-key : ${{ secrets.AWS_SECRET_KEY }}
+                role-to-assume        : ${{ secrets.AWS_ROLE }}
                 aws-region            : ${{ env.AWS_REGION_NAME }}
 
             - name: Copy Deployment package to S3 bucket
@@ -44,6 +45,7 @@ jobs:
               with:
                 aws-access-key-id     : ${{ secrets.AWS_ACCESS_KEY }}
                 aws-secret-access-key : ${{ secrets.AWS_SECRET_KEY }}
+                role-to-assume        : ${{ secrets.AWS_ROLE }}
                 aws-region            : ${{ env.AWS_REGION_NAME }}
             
             - name: Create new ElasticBeanstalk Application
