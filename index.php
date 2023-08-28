@@ -1,3 +1,3 @@
 <?php
 
-echo "Great Job! This task is done!";
+echo "Great Job! This demonstration is done!";
